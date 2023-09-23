@@ -40,8 +40,6 @@ func pathHandler(w http.ResponseWriter, r *http.Request) {
 // }
 
 func main() {
-	var router http.HandlerFunc
-	router = pathHandler
 	fmt.Println("Starting the server on :3000...")
-	http.ListenAndServe(":3000", router)
+	http.ListenAndServe(":3000", http.HandlerFunc(pathHandler))
 }
