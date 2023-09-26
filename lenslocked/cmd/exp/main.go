@@ -17,8 +17,10 @@ func main() {
 
 	user := struct {
 		Name string
+		Age  int
 	}{
 		Name: "John Smith",
+		Age:  99,
 	}
 
 	err = t.Execute(os.Stdout, user)
