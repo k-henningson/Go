@@ -5,9 +5,10 @@ import (
 	"os"
 )
 
-// type User struct {
-// 	Name string
-// }
+type User struct {
+	Name string
+	Bio  string
+}
 
 func main() {
 	t, err := template.ParseFiles("hello.gohtml")
@@ -15,12 +16,9 @@ func main() {
 		panic(err)
 	}
 
-	user := struct {
-		Name string
-		Age  int
-	}{
+	user := User{
 		Name: "John Smith",
-		Age:  99,
+		Bio:  `<script>alert("Cross Site Scripting lesson");</script>`,
 	}
 
 	err = t.Execute(os.Stdout, user)
